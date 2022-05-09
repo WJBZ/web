@@ -1,14 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
+import './index.scss';
 import App from './App';
+import { SnackbarProvider } from 'notistack';
 import reportWebVitals from './reportWebVitals';
+import dotenv from "dotenv";
+dotenv.config();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <SnackbarProvider anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+      maxSnack={12}>
+      <App />
+    
+    </SnackbarProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

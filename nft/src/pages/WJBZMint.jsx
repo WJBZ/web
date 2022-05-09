@@ -1,20 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import caver from '../klaytn/caver';
-import logo from "../images/JC_logo.png";
-import jc_home from "../images/JC_home.png";
-import jc_opensea from "../images/JC_opensea.png";
-import jc_twitter from "../images/JC_twitter.png";
-import jc_random from "../images/JC_random.gif";
-import jc_banana from "../images/banana.png";
 import JB_ContractABI from "../klaytn/abiInterface.json"; 
 import './WJBZMint.scss';
 import { Card, CardMedia, CardContent, Button, CardActionArea, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Box, CircularProgress } from '@mui/material';
-import testImage from '../images/mint.gif';
-import { useSpring, animated } from 'react-spring'; 
 import { useSnackbar } from 'notistack';
 import axios from 'axios';
 // import Modal from "react-modal";
-import ReactTyped from "react-typed";
 
 function WJBZMint() {
   const [account, setAccount] = useState('');
@@ -32,15 +23,8 @@ function WJBZMint() {
   let [maxValue, setMaxValue] = useState(1);
   const [, updateState] = useState(); 
   const [open, setOpen] = useState(false);
-  const [openImg1, setOpenImg1] = useState(false);
-  const [openImg2, setOpenImg2] = useState(false);
-  const [openImg3, setOpenImg3] = useState(false);
   let [isProgress, setIsProgress] = useState(false);
   const forceUpdate = useCallback(() => updateState({}), []);
-  const [resImg1_1, setResImg1_1] = useState();
-  const [resImg2, setResImg2] = useState([]);
-  const [resImg3, setResImg3] = useState([]);
-  const [resText, setResText] = useState([]);
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -133,10 +117,8 @@ function WJBZMint() {
           isProgress=true;
 
           if(blockNumber>=mintStartBlockNumber&&maxMintCount>=Number(nowMintCount)+Number(mintCount)&&balance>=+(mintPrice*mintCount).toFixed(2)&&Number(network)===Number(process.env.REACT_APP_NETWORK)&&!isFail) { //8217 1001
-
-            await axios.get(`https://api.${process.env.REACT_APP_PUBLICLINK}/status`).then(async (res) => { 
-              if(res.status===200) {
-                const delay = ms => new Promise(res => setTimeout(res, ms));
+              
+              const delay = ms => new Promise(res => setTimeout(res, ms));
                     const data = caver.klay.abi.encodeFunctionCall( 
                     {
                       "name": "publicMint",
@@ -167,10 +149,6 @@ function WJBZMint() {
                       gas: _value*mintCount,
                       data
                     })
-                    .once('transactionHash', transactionHash => {
-                      // console.log('txHash', transactionHash);
-                      axios.post(`https://api.${process.env.REACT_APP_PUBLICLINK}/JC_setTXLog`,{ address: account, price: mintPrice*mintCount, txhash: transactionHash });
-                    })
                     .once('receipt', async (receipt) => {
                           // const delay = ms => new Promise(res => setTimeout(res, ms));
                           enqueueSnackbar( `${mintCount} 마리의 귀여운 잔나비 민팅이 성공했습니다!` , { variant: 'success' });
@@ -191,8 +169,6 @@ function WJBZMint() {
                     //     isFail=true;
                     //     await setAccountInfo(klaytn);
                     // });
-              }
-            });
           }
         } catch (error) {
           console.log(error);
@@ -256,17 +232,13 @@ function WJBZMint() {
     setNetwork(klaytn.networkVersion);
     klaytn.on('networkChanged', () => setNetworkInfo(klaytn.networkVersion));
     
-    axios.post(`https://api.${process.env.REACT_APP_PUBLICLINK}/getMintableCount`, { contractSB: 'JC'}).then((res) => { 
-      let count = Number(res.data)
-      setNowMintCount(count);
-    });
-
     if(Number(network) !== Number(process.env.REACT_APP_NETWORK)) { //8217 1001
       setOpen(true);
     }
   }
 
   async function setContractInfo() {
+    // console.log(JB_ContractABI);
     var _c = new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
     // console.log(_c);
     await _c.call("mintingInformation").then(res => {
@@ -305,40 +277,6 @@ function WJBZMint() {
   const handleNetworkClose = () => {
     setOpen(false);
   };
-
-  const handleResult1Close = () => {
-    setOpenImg1(false);
-    setResImg1_1('');
-    setResText([]);
-  };
-
-  const handleResult2Close = () => {
-    setOpenImg2(false);
-    setResImg2([]);
-    setResText([]);
-  };
-
-  const handleResult3Close = () => {
-    setOpenImg3(false);
-    setResImg3([]);
-    setResText([]);
-  };
-
-  const loopScale = useSpring({
-    reset: true,
-    loop: { reverse: true },
-    from: { scale: 1 },
-    to: { scale: 0.97 },
-    config: { duration: 500 },
-  });
-
-  const bananaMove = useSpring({
-    from: { scale: 0, transform: `translate(0px,0px)` },
-    to: { scale: 1, transform: `translate(${-250 + Math.round(Math.random()*500)}px,${-250 + Math.round(Math.random()*500)}px)` },
-    config: { duration: 1000 },
-  });
-
-  
 
   return (
     <>
@@ -419,7 +357,7 @@ function WJBZMint() {
             MY KLAY : {+(balance*1.0).toFixed(3)} KLAY
           </div>
           
-          <Button className='JB_MintButton' onClick={()=> {onMintBtn(1)}} sx={{ fontFamily:'BMJUA', fontSize: '16px', color: '#ffc800' }} disabled={showInfo&&(blockNumber<mintStartBlockNumber||maxMintCount<Number(nowMintCount)+Number(mintCount)||balance<+(mintPrice*mintCount).toFixed(2)||Number(network)!==Number(process.env.REACT_APP_NETWORK)||isProgress)||true}>{!showInfo ? "CONNECT WALLET" : "MINT"}</Button>
+          <Button className='JB_MintButton' onClick={()=> {onMintBtn(1)}} sx={{ fontFamily:'BMJUA', fontSize: '16px', color: '#ffc800' }} disabled={showInfo&&(blockNumber<mintStartBlockNumber||maxMintCount<Number(nowMintCount)+Number(mintCount)||balance<+(mintPrice*mintCount).toFixed(2)||Number(network)!==Number(process.env.REACT_APP_NETWORK)||isProgress)}>{!showInfo ? "CONNECT WALLET" : "MINT"}</Button>
         </div>
         <div className="JB_Guide">* 민팅 가격 이외 가스 수수료가 발생할 수 있으므로 민팅금액 + 3KLAY 정도의 여유분을 보유한 상태에서 민팅을 진행해주시길 권장합니다.<br/>
                                   * 민팅 오류가 발생한 경우 <a href='https://open.kakao.com/o/shttjK9d' target="_blank">여기</a>를 클릭하여 통해 문의 남겨주시면 신속히 도와드리겠습니다.</div>
@@ -464,6 +402,7 @@ function WJBZMint() {
         </p>
       </div> */}
 
+    </div>
       <div>
         <Dialog
           open={open}
@@ -484,178 +423,7 @@ function WJBZMint() {
           </DialogActions>
         </Dialog>
       </div>
-      <div>
-        <Dialog
-          open={openImg1}
-          onClose={handleResult1Close}
-        >
-        
-          {/* {openImg ? <CreateBananas/> : null } */}
-          {/* <DialogTitle sx={{ textAlign:'center', fontFamily:'NotoSans', }}>
-            {"Congratulations !!"}
-          </DialogTitle> */}
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={resImg1_1} sx={{ justifySelf: 'center', width:300, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[0]}
-            </DialogContentText>
-          </DialogContent>
-          {/* <DialogActions sx={{ justifyContent: 'center' }}>
-            <Button sx={{ fontFamily:'NotoSans', fontSize:'1em' }} onClick={handleResultClose} autoFocus>
-              확인
-            </Button>
-          </DialogActions> */}
-        </Dialog>
-      </div>
-      <div>
-        <Dialog
-          open={openImg2}
-          onClose={handleResult2Close}
-          className='rowFive'
-        >
-        
-          {/* {openImg ? <CreateBananas/> : null } */}
-          {/* <DialogTitle sx={{ textAlign:'center', fontFamily:'NotoSans', }}>
-            {"Congratulations !!"}
-          </DialogTitle> */}
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg2[0]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[0]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg2[1]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[1]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg2[2]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[2]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg2[3]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[3]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg2[4]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[4]}
-            </DialogContentText>
-          </DialogContent>
-        </Dialog>
-      </div>
-      <div>
-        <Dialog
-          open={openImg3}
-          onClose={handleResult3Close}
-          className='rowTen'
-        >
-        
-          {/* {openImg ? <CreateBananas/> : null } */}
-          {/* <DialogTitle sx={{ textAlign:'center', fontFamily:'NotoSans', }}>
-            {"Congratulations !!"}
-          </DialogTitle> */}
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[0]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[0]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[1]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[1]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[2]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[2]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[3]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[3]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[4]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[4]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[5]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[5]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[6]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[6]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[7]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[7]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[8]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[8]}
-            </DialogContentText>
-          </DialogContent>
-          <DialogContent sx={{ display:'grid', alignItems: 'center', justifyContent: 'center' }}>
-            <animated.div style={loopScale}>
-            <Box component="img" src={`data:image/png;base64,${resImg3[9]}`} sx={{ justifySelf: 'center', width:150, borderRadius: '12px', boxShadow: 1, pointerEvents: 'none' }}/>
-            </animated.div>
-            <DialogContentText sx={{ justifySelf: 'center', fontFamily:'NotoSans', }}>
-              {resText[9]}
-            </DialogContentText>
-          </DialogContent>
-        </Dialog>
-      </div>
-    </div>
+      
     </>
   );
 }

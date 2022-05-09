@@ -3,7 +3,7 @@ import Scrollspy from "react-scrollspy";
 import caver from '../../klaytn/caver';
 import Logo from "../../assets/logo2.svg"
 import { Link } from "react-router-dom";
-import { UserInfoContextStore } from "../contexts/UserInfoContext";
+// import { UserInfoContextStore } from "../contexts/UserInfoContext";
 import axios from 'axios';
 
 // import {
@@ -24,7 +24,7 @@ const Header = () => {
   const [tokenCount, setTokenCount] = useState(0);
   const [contract, setContract] = useState();
 
-  const UserInfo = useContext(UserInfoContextStore);
+  // const UserInfo = useContext(UserInfoContextStore);
   
   useEffect(async () => {
     setNetworkInfo();
@@ -58,11 +58,11 @@ const Header = () => {
     if(account===undefined) return;
     const balance = await caver.klay.getBalance(account);
 
-    UserInfo.setAddress(account);
+    // UserInfo.setAddress(account);
     setAccount(account);
     setBalance(caver.utils.fromPeb(balance, 'KLAY'));
     
-    const contract = new caver.kct.kip17(process.env.REACT_APP_JC_CONTRACT_ADDRESS);
+    const contract = new caver.kct.kip17(process.env.REACT_APP_JB_CONTRACT_ADDRESS);
 
     setTokenCount(await contract.balanceOf(klaytn.selectedAddress));
 
@@ -877,7 +877,7 @@ const Header = () => {
         "name": "OwnershipTransferred",
         "type": "event"
       }
-    ], process.env.REACT_APP_JC_CONTEST_CONTRACT, { gasPrice: '25000000000' }));
+    ], process.env.REACT_APP_JB_CONTRACT_ADDRESS, { gasPrice: '25000000000' }));
   }
 
   const LoginInfo = () => {
@@ -886,7 +886,7 @@ const Header = () => {
       <>
         {/* <div className="count">{tokenCount}</div> */}
         <div className='JC_Info'>
-          <span>ADDRESS: {UserInfo.address}</span><br/>
+          {/* <span>ADDRESS: {UserInfo.address}</span><br/> */}
           <span>KLAY: {balance}</span><br/>
           <span>Network: {(Number(network) === 8217 ? 'Mainnet' : Number(network) === 0 ? 'Not Found !!' : 'Testnet')} </span>
         </div>
