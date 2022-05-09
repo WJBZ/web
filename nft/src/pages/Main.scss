@@ -1,0 +1,559 @@
+html,
+body{
+width:100%;
+overflow-x:hidden;
+}
+
+*:focus {
+  outline: none;
+  transition: all 0.5s;
+}
+
+.JB_Player .MuiPaper-root {
+  z-index: 999;
+  color:#fff;
+  background: #111;
+}
+
+.JB_Player .MuiSvgIcon-root {
+  fill: #fff;
+}
+
+.JB_Container .JB_Player{
+  font-size: 16px;
+}
+
+.css-exkjcx {
+  color: #fff!important;
+}
+
+.css-11yxmqv {
+  background: #FFCA00;
+}
+
+.css-15qvxv8 {
+  line-height: 1.5;
+}
+
+.css-187mznn-MuiSlider-root {
+  color: #fff!important;
+}
+
+.JB_Container .JB_Intro {
+  height: 45rem;
+  background : #333333 url("../assets/img/intro/intro_bg.png") no-repeat center center / cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Jannabi Champs */
+.JB_Intro .JB_Champs {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 240px;
+}
+
+.JB_Intro .JB_Champs .JB_Wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.JB_Intro .JB_Champ {
+  display: inline-flex;
+  margin: auto;
+}
+
+.JB_Intro .JB_Champ:nth-child(1), .JB_Intro .JB_Champ:nth-child(7){
+  position: relative;
+  z-index: 4;
+}
+
+.JB_Intro .JB_Champ:nth-child(1) {
+  width: 240px;
+  height: 240px;
+  margin-right: -2.5em;
+}
+
+.JB_Intro .JB_Champ:nth-child(7) {
+  width: 240px;
+  height: 240px;
+}
+
+.JB_Intro .JB_Champ:nth-child(2), .JB_Intro .JB_Champ:nth-child(6) {
+  position: relative;
+  z-index: 3;
+}
+
+.JB_Intro .JB_Champ:nth-child(2) {
+  width: 190px;
+  height: 190px;
+  margin-right: -2em;
+}
+
+.JB_Intro .JB_Champ:nth-child(4) {
+  width: 180px;
+  height: 240px;
+}
+
+.JB_Intro .JB_Champ:nth-child(4) img {
+  padding-bottom: 86px;
+  padding-left: 15px;
+  padding-right: 15px;
+  filter: drop-shadow(0px 0px 2px rgba(255, 0, 0, 0.7));
+}
+
+.JB_Intro .JB_Champ:nth-child(6) {
+  width: 190px;
+  height: 190px;
+  margin-right: -2.5em;
+}
+
+.JB_Intro .JB_Champ:nth-child(3), .JB_Intro .JB_Champ:nth-child(5) {
+  position: relative;
+  z-index: 2;
+}
+
+.JB_Intro .JB_Champ:nth-child(3) {
+  width: 140px;
+  height: 140px;
+}
+
+.JB_Intro .JB_Champ:nth-child(5) {
+  width: 140px;
+  height: 140px;
+  margin-right: -2em;
+}
+/* Jannabi Champs end */
+
+.JB_Container .JB_Story, .JB_Container .JB_Partner {
+  padding-top: 30px;
+  padding-bottom: 60px;
+  background-color: black;
+}
+
+.JB_Container .JB_Jannabi, .JB_Container .JB_Roadmap, .JB_Container .JB_Team, .JB_Container .JB_FAQ {
+
+  padding-bottom: 140px;
+  background-color: #333333;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* Jannabi Partner null*/
+.JB_Partner {
+  display: none;
+}
+.JB_FAQ {
+  background-position: top !important;
+}
+/* Jannabi Partner null*/
+
+.JB_Title {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.JB_NFT img{
+  width: 100%;
+  max-width: 438px;
+}
+
+.JB_Intro .JB_MainTitle {
+  margin : 0 auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 100%;
+}
+
+.JB_Intro .JB_MainTitle img {
+  width: 100%;
+  max-width: 548px;
+}
+
+//Slider
+
+.JB_Story .JB_Slider {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.JB_Slider .slick-dots {
+  position: relative;
+  width: auto;
+  bottom: 0px
+}
+
+.JB_Slider .slick-dots li {
+  width: 80px !important;
+  height: 5px !important;
+}
+
+.JB_Slider .slick-dots li button {
+  // bottom: 25px !important;
+  color:red !important;
+  width: 80px !important;
+  height: 5px !important;
+}
+
+.JB_Slider .slick-dots li button:before {
+  // bottom: 25px !important;
+  background-color: #888;
+  content: '' !important;
+  width: 80px !important;
+  height: 5px !important;
+}
+
+.JB_Slider .slick-dots li button:hover:before,
+.JB_Slider .slick-dots li button:focus:before
+{
+    color: #ccc
+}
+
+.JB_Story .slick-slide img {
+    width: 100%;
+}
+
+
+.JB_Jannabi .slick-slide img {
+    max-width: 80%;
+    border: 3px solid #FFCA00;
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+    transition: all ease 0.5s;
+}
+
+.JB_Jannabi .slick-slider {
+  margin-bottom: 40px;
+}
+
+.center .slick-center img {
+    border: 3px solid #BFFF00;
+    transition: all ease 0.5s;
+}
+
+
+.JB_Jannabi a {
+  width: 140px !important;
+  margin: auto 10px auto 10px;
+}
+
+.JB_Jannabi a:nth-child(2n) {
+  background-color: #FFCA00 !important;
+  color: black !important;
+}
+
+.JB_Jannabi .Jannabi_Btn {
+  font-family: "NCSRadhiumz" !important;
+}
+
+
+.JB_Roadmap .JB_Grid { 
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto auto 40px auto;
+  justify-content: center;
+  width: 100%;
+  max-width: 1260px;
+}
+
+.JB_Roadmap .JB_Grid .JB_GridBox {
+  margin: 15px;
+  width: 23%;
+  text-align: center;
+  line-height: 0.8;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: white solid 1px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+}
+
+.JB_Roadmap .JB_Grid .JB_GridBox span:nth-child(1) {
+  display: block;
+  color: #FFD200;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.JB_Roadmap .JB_Grid .JB_GridBox span:nth-child(2) {
+  display: block;
+  color: rgba($color: #fff, $alpha: 0.8);
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.JB_Roadmap .JC_DetailBtn {
+  width: 200px;
+  background-color: rgb(0, 0, 0);
+  border: white solid 1px;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7);
+  border-radius: 5px;
+  margin: auto;
+}
+
+.JB_Roadmap .JC_DetailBtn a{
+  margin: 8px auto 8px auto;
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.JB_Team .JB_Grid {
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto auto 40px auto;
+  justify-content: center;
+  max-width: 960px;
+}
+
+.JB_Team .JB_Grid .JB_GridBox {
+  text-align: center;
+  color: white;
+  min-width:120px ;
+  margin: 50px;
+}
+
+
+.JB_Team .JB_Grid .JB_GridBox .JB_CirclePhoto {
+  
+  width: 18vw;
+  height: 18vw;
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  border-radius: 50%; 
+  border: 5px solid #FFCC00;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.JB_Team .JB_Grid .JB_GridBox .JB_CirclePhoto img {
+  width: 100%;
+  height: 100%;
+  min-width: 75px;
+  pointer-events: none;
+}
+
+.JB_Team .JB_Grid .JB_GridBox .JB_Name {
+  font-family: "NCSRadhiumz";
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.JB_Team .JB_Grid .JB_GridBox .JB_Job {
+  font-family: "NCSRadhiumz";
+  font-size: 0.75rem;
+}
+
+.JB_Team {
+  padding-bottom: 0 !important;
+}
+
+.JB_Team .JB_BG {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50% 50%;
+}
+
+.JB_Team .JB_BGImage {
+  position: absolute;
+  opacity: 10%;
+  margin: 0 auto;
+}
+
+.JB_Team .JB_Black {
+  padding-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.JB_Team .JB_Grid {
+  position: relative;
+  z-index: 10;
+}
+
+.JB_Partner .JB_Grid {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto auto 40px auto;
+  justify-content: center;
+  width: 100%;
+  max-width: 1260px;
+  height: 300px;
+  border-top: 2px solid #575757;
+  border-bottom: 2px solid #575757;
+}
+
+.JB_FAQ {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.css-15v22id-MuiAccordionDetails-root {
+  line-height: 1.5;
+}
+
+.css-u7qq7e{
+  line-height: 1.5;
+}
+
+.Faq_ps {
+  margin-top: 30px;
+  line-height: 1.5;
+}
+.Faq_ps strong{
+  font-weight: bold;
+}
+
+.JB_FAQ .JB_Contents {
+  width: 100%;
+  max-width: 1260px;
+  margin: auto;
+  color: white;
+  font-size: 14px;
+}
+
+.JB_FAQ .JB_Contents .JB_Title {
+  margin-top: 30px;
+}
+
+.JB_FAQ .MuiAccordion-root {
+  font-size: 13px !important;
+  text-align: left;
+  background-color: inherit !important;
+  color: white;
+  box-shadow: none;
+  border-bottom: rgba($color: #ccc, $alpha: 0.4) solid 1px;
+}
+
+.JB_FAQ .MuiAccordionSummary-root {
+  font-size: 14px !important;
+  font-weight: bold;
+}
+
+.JB_FAQ .MuiSvgIcon-root {
+  fill: white;
+}
+
+.JB_Footer .JB_Wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/** Mobile **/
+@media (max-width: 768px) { 
+  .JB_Intro .JB_MainTitle img {
+    width: 95%;
+    max-width: 548px;
+  }
+
+  .JB_Container .JB_Intro {
+    height: 40rem;
+  }
+
+  /* Jannabi Champs */
+  .JB_Intro .JB_Champs .JB_Wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+  }
+
+  .JB_Intro .JB_Champ {
+    display: inline-flex;
+    margin: auto;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(1), .JB_Intro .JB_Champ:nth-child(7){
+    position: relative;
+    z-index: 4;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(1) {
+    width: 240px;
+    height: 240px;
+    margin-right: -120px;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(7) {
+    width: 240px;
+    height: 240px;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(2), .JB_Intro .JB_Champ:nth-child(6) {
+    position: relative;
+    z-index: 3;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(2) {
+    width: 190px;
+    height: 190px;
+    margin-right: -100px;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(4) {
+    width: 180px;
+    height: 240px;
+    margin-right: -100px;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(4) img {
+    padding-bottom: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    filter: drop-shadow(0px 0px 2px rgba(255, 0, 0, 0.7));
+  }
+
+  .JB_Intro .JB_Champ:nth-child(6) {
+    width: 190px;
+    height: 190px;
+    margin-right: -120px;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(3), .JB_Intro .JB_Champ:nth-child(5) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(3) {
+    width: 140px;
+    height: 140px;
+    margin-right: -100px;
+  }
+
+  .JB_Intro .JB_Champ:nth-child(5) {
+    width: 140px;
+    height: 140px;
+    margin-right: -100px;
+  }
+  /* Jannabi Champs end */
+
+  .JB_Roadmap .JB_Grid .JB_GridBox {
+    margin: 10px;
+    width: 33%;
+  }
+  .JB_Team .JB_Grid .JB_GridBox {
+    margin: 10px;
+  }
+  .JB_Team .JB_Grid .JB_GridBox .JB_CirclePhoto {
+    width: 23vw;
+    height: 23vw;
+  }
+}

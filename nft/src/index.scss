@@ -1,0 +1,286 @@
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* font */
+@font-face {
+  font-family: "BMJUA";
+  src: url("./fonts/BMJUA.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NCSRadhiumz";
+  src: url("./fonts/NCSRadhiumzRegular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url('./fonts/NotoSans-Black.woff') format("woff");
+}
+
+body {
+  margin: 0;
+  font-family: 'NCSRadhiumz', 'BMJUA', 'NotoSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+// HEADER
+
+.JB_Header .pc {
+  max-width: 1260px;
+}
+
+.JB_Header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  height: 75px;
+  max-height: 75px;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  z-index: 1040;
+}
+
+.JB_Header .JB_LongLogo {
+  width: 140px;
+  height: auto;
+  margin-left: 30px;
+}
+
+.JB_Header .JB_LongLogo a img {
+  width: 100%;
+}
+
+.JB_Header .container {
+  display: flex;
+  flex-wrap: inherit;
+  max-width: 1260px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 1260px) {
+  .JB_Header .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 767px) {
+  .JB_Header .mobile {
+    display: none !important;
+  }
+
+  .JB_Header .pc {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 766px) {
+  .JB_Header .pc {
+    display: none !important;
+  }
+
+  .JB_Header .mobile {
+    display: flex !important;
+  }
+}
+
+.JB_Header .Menu-Btn {
+  display: flex !important;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.JB_Header .menu {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.JB_Header .hide-menu {
+  display: none;
+}
+
+.JB_Header .show-menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.JB_Header .mobile .Menu-List {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  right: 0;
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.JB_Header .mobile .Menu-List li {
+  display: list-item;
+  height: 60px;
+  background-color: black;
+  align-items: center;
+}
+
+.JB_Header .mobile .Menu-List li a span{
+  display: block;
+}
+
+.JB_Header .pc .menu li {    
+  margin-right: 20px;
+}
+
+.JB_Header .pc .menu li:last-child {    
+  margin-right: 0px;
+}
+
+.JB_Header .menu li a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+}
+
+.JB_Header .menu .current a {
+  color: #888 !important;
+}
+
+// FOOTER
+
+.JB_Footer {
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  width: 100%;
+  height: 290px;
+  clear: both;
+  float: left;
+  border-top: solid 1px #88888833;
+  text-align: right;
+}
+
+
+@media (min-width: 1260px) {
+  .JB_Header .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.JB_Footer .JB_Wrapper {
+  position: relative;
+  margin: auto;
+  max-width: 1260px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.JB_Footer .JB_Logo {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+}
+
+.JB_Footer .JB_Logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.JB_Footer .JB_Wrapper a {
+  display: inline-block;
+  padding-left: 8px;
+  margin-bottom: 14px;
+}
+
+.JB_Footer .copyright {
+  display: block;
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+.JB_Footer .copyright p:nth-child(2) {
+  line-height: 3.0;
+}
+  
+// COMMON
+
+.JB_Container {
+  text-align: center;
+  background-color: #fff;
+  font-family: 'NotoSans';
+  min-height: calc(100vh - 75px);
+  margin-top: 75px;
+  padding-bottom: 220px;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  align-items: center;
+  justify-items: center;
+}
