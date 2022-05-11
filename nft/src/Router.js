@@ -10,12 +10,11 @@ import NotFound from "./pages/NotFound";
 import Main from './pages/Main';
 
 function Router() {
-
   return (
     <> 
     <BrowserRouter> {/* basename={process.env.PUBLIC_URL}> */}
       {/* <ScrollTopBehaviour /> */}
-      { (window.location.pathname.toLowerCase() !== '/mint')&&(window.location.pathname.toLowerCase() !== '/wlmint') ? <Header/> : null }
+      { (window.location.href.toLowerCase().includes('#/mint'))||(window.location.href.toLowerCase().includes('#/wlmint')) ? null : <Header/> }
       <Routes>
         <Route exact path='/' element={<Main />}  />
         <Route exact path='/mint' element={<JannabiClubMint/>} />
@@ -29,7 +28,7 @@ function Router() {
         {/* <Route path='/contest' element={<Contest/>} /> */}
         <Route path='*' element={<NotFound />} />
       </Routes>
-      { (window.location.pathname.toLowerCase() !== '/mint')&&(window.location.pathname.toLowerCase() !== '/wlmint') ? <Footer/> : null }
+      { (window.location.href.toLowerCase().includes('#/mint'))||(window.location.href.toLowerCase().includes('#/wlmint')) ?  null : <Footer/>}
     </BrowserRouter>
     </>
   );
