@@ -59,9 +59,9 @@ function WJBZMint() {
         setKIPContract(KIPContract);
       }
       // console.log(contract);
-      await contract.call("mintingInformation").then(res => {
+      await contract.call("mintingInformation").then( async (res) => {
         const _nowMintCount = Number(res[1])-1;
-        let _accountCount = (account==='') ? 0 : Number(KIPContract.balanceOf(account));
+        let _accountCount = (account==='') ? 0 : Number(await KIPContract.balanceOf(account));
         if(isNaN(_accountCount)) _accountCount=0;
         const _accountAbleCount = Number(res[4]) - _accountCount;
         setNowMintCount(_nowMintCount);
@@ -209,9 +209,9 @@ function WJBZMint() {
       setKIPContract(KIPContract);
     }
     
-    await contract.call("mintingInformation").then(res => {
+    await contract.call("mintingInformation").then( async (res) => {
       const _nowMintCount = Number(res[1])-1;
-      let _accountCount = (account==='') ? 0 : Number(KIPContract.balanceOf(account));
+      let _accountCount = (account==='') ? 0 : Number(await KIPContract.balanceOf(account));
       if(isNaN(_accountCount)) _accountCount=0;
       const _accountAbleCount = Number(res[4]) - _accountCount;
       setNowMintCount(_nowMintCount);
@@ -256,9 +256,9 @@ function WJBZMint() {
     KIPContract = new caver.kct.kip17(`${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`);
     setKIPContract(KIPContract);
     // console.log(_c);
-    await _c.call("mintingInformation").then(res => {
+    await _c.call("mintingInformation").then(async (res) => {
       const _nowMintCount = Number(res[1])-1;
-      let _accountCount = (account==='') ? 0 : Number(KIPContract.balanceOf(account));
+      let _accountCount = (account==='') ? 0 : Number(await KIPContract.balanceOf(account));
       if(isNaN(_accountCount)) _accountCount=0;
       const _accountAbleCount = Number(res[4]) - _accountCount;
       setNowMintCount(_nowMintCount);
