@@ -12,6 +12,7 @@ function WJBZMint() {
   let [mintCount, setMintCount] = useState(1);
   let [network, setNetwork] = useState(null);
   let [contract, setContract] = useState();
+  let [KIPContract, setKIPContract] = useState();
   const [showInfo, setShowInfo] = useState(false);
   let [blockNumber, setBlockNumber] = useState(0);
   let [mintStartBlockNumber, setMintStartBlockNumber] = useState(0);
@@ -53,14 +54,17 @@ function WJBZMint() {
       if(contract===undefined) {
         const _c =  new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
         contract =_c;
+        KIPContract = new caver.kct.kip17(`${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`);
         setContract(contract);
+        setKIPContract(KIPContract);
       }
       // console.log(contract);
       await contract.call("mintingInformation").then(res => {
         const _nowMintCount = Number(res[1])-1;
+        const _accountAbleCount = Number(res[4]) - Number(KIPContract.balanceOf(account??"0x0000000000000000000000000000000000000000"));
         setNowMintCount(_nowMintCount);
         setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
-        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount)));
+        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount),_accountAbleCount, 1));
         setMintStartBlockNumber(Number(res[5]));
         setMaxMintCount(Number(res[6]));
         setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
@@ -101,7 +105,6 @@ function WJBZMint() {
         try {
           await klaytn.enable();
           await setAccountInfo(klaytn);
-          klaytn.on('accountsChanged', async () => await setAccountInfo(klaytn));
         } catch (error) {
           console.log('User denied account access');
         }
@@ -199,14 +202,17 @@ function WJBZMint() {
 
     if(contract===undefined) {
       contract = new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
+      KIPContract = new caver.kct.kip17(`${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`);
       setContract(contract);
+      setKIPContract(KIPContract);
     }
     
     await contract.call("mintingInformation").then(res => {
         const _nowMintCount = Number(res[1])-1;
+        const _accountAbleCount = Number(res[4]) - Number(KIPContract.balanceOf(account??"0x0000000000000000000000000000000000000000"));
         setNowMintCount(_nowMintCount);
         setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
-        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount)));
+        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount),_accountAbleCount, 1));
         setMintStartBlockNumber(Number(res[5]));
         setMaxMintCount(Number(res[6]));
         setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
@@ -232,6 +238,7 @@ function WJBZMint() {
     network = klaytn.networkVersion;
     setNetwork(klaytn.networkVersion);
     klaytn.on('networkChanged', () => setNetworkInfo(klaytn.networkVersion));
+    klaytn.on('accountsChanged', async () => await setAccountInfo(klaytn));
     
     if(Number(network) !== Number(process.env.REACT_APP_NETWORK)) { //8217 1001
       setOpen(true);
@@ -241,12 +248,16 @@ function WJBZMint() {
   async function setContractInfo() {
     // console.log(JB_ContractABI);
     var _c = new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
+    
+    KIPContract = new caver.kct.kip17(`${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`);
+    setKIPContract(KIPContract);
     // console.log(_c);
     await _c.call("mintingInformation").then(res => {
         const _nowMintCount = Number(res[1])-1;
+        const _accountAbleCount = Number(res[4]) - Number(KIPContract.balanceOf(account??"0x0000000000000000000000000000000000000000"));
         setNowMintCount(_nowMintCount);
         setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
-        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount)));
+        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount),_accountAbleCount, 1));
         setMintStartBlockNumber(Number(res[5]));
         setMaxMintCount(Number(res[6]));
         setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
