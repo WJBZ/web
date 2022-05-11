@@ -61,10 +61,12 @@ function WJBZMint() {
       // console.log(contract);
       await contract.call("mintingInformation").then(res => {
         const _nowMintCount = Number(res[1])-1;
-        const _accountAbleCount = Number(res[4]) - Number(KIPContract.balanceOf(account??"0x0000000000000000000000000000000000000000"));
+        let _accountCount = (account==='') ? 0 : Number(KIPContract.balanceOf(account));
+        if(isNaN(_accountCount)) _accountCount=0;
+        const _accountAbleCount = Number(res[4]) - _accountCount;
         setNowMintCount(_nowMintCount);
         setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
-        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount),_accountAbleCount, 1));
+        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount), Math.max(_accountAbleCount, 0)));
         setMintStartBlockNumber(Number(res[5]));
         setMaxMintCount(Number(res[6]));
         setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
@@ -208,14 +210,16 @@ function WJBZMint() {
     }
     
     await contract.call("mintingInformation").then(res => {
-        const _nowMintCount = Number(res[1])-1;
-        const _accountAbleCount = Number(res[4]) - Number(KIPContract.balanceOf(account??"0x0000000000000000000000000000000000000000"));
-        setNowMintCount(_nowMintCount);
-        setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
-        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount),_accountAbleCount, 1));
-        setMintStartBlockNumber(Number(res[5]));
-        setMaxMintCount(Number(res[6]));
-        setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
+      const _nowMintCount = Number(res[1])-1;
+      let _accountCount = (account==='') ? 0 : Number(KIPContract.balanceOf(account));
+      if(isNaN(_accountCount)) _accountCount=0;
+      const _accountAbleCount = Number(res[4]) - _accountCount;
+      setNowMintCount(_nowMintCount);
+      setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
+      setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount), Math.max(_accountAbleCount, 0)));
+      setMintStartBlockNumber(Number(res[5]));
+      setMaxMintCount(Number(res[6]));
+      setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
     });
 
     // await axios.post(`https://api.${process.env.REACT_APP_PUBLICLINK}/randomMintingCB`).then((res) => { 
@@ -253,14 +257,16 @@ function WJBZMint() {
     setKIPContract(KIPContract);
     // console.log(_c);
     await _c.call("mintingInformation").then(res => {
-        const _nowMintCount = Number(res[1])-1;
-        const _accountAbleCount = Number(res[4]) - Number(KIPContract.balanceOf(account??"0x0000000000000000000000000000000000000000"));
-        setNowMintCount(_nowMintCount);
-        setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
-        setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount),_accountAbleCount, 1));
-        setMintStartBlockNumber(Number(res[5]));
-        setMaxMintCount(Number(res[6]));
-        setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
+      const _nowMintCount = Number(res[1])-1;
+      let _accountCount = (account==='') ? 0 : Number(KIPContract.balanceOf(account));
+      if(isNaN(_accountCount)) _accountCount=0;
+      const _accountAbleCount = Number(res[4]) - _accountCount;
+      setNowMintCount(_nowMintCount);
+      setLimitCountPerBlock(Number(res[2]));  // 2 - Mint, 3 - WLMint
+      setMaxValue(Math.min(Number(res[2]),Number(res[6])-Number(_nowMintCount), Math.max(_accountAbleCount, 0)));
+      setMintStartBlockNumber(Number(res[5]));
+      setMaxMintCount(Number(res[6]));
+      setMintPrice(caver.utils.fromPeb(res[7], 'KLAY'));
     });
     contract = _c;
     setContract(_c);
