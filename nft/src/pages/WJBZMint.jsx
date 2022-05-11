@@ -2,9 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import caver from '../klaytn/caver';
 import JB_ContractABI from "../klaytn/abiInterface.json"; 
 import './WJBZMint.scss';
-import { Card, CardMedia, CardContent, Button, CardActionArea, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Box, CircularProgress } from '@mui/material';
+import { Button, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Box, CircularProgress } from '@mui/material';
 import { useSnackbar } from 'notistack';
-import axios from 'axios';
 // import Modal from "react-modal";
 
 function WJBZMint() {
@@ -52,9 +51,11 @@ function WJBZMint() {
   useEffect(() => {
     const id2 = setInterval(async() => {
       if(contract===undefined) {
-        contract = new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
+        const _c =  new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
+        contract =_c;
         setContract(contract);
       }
+      // console.log(contract);
       await contract.call("mintingInformation").then(res => {
         const _nowMintCount = Number(res[1])-1;
         setNowMintCount(_nowMintCount);
