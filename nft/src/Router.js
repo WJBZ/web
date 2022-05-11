@@ -18,7 +18,7 @@ function Router() {
       { (window.location.pathname.toLowerCase() !== '/mint')&&(window.location.pathname.toLowerCase() !== '/wlmint') ? <Header/> : null }
       <Routes>
         <Route exact path='/' element={<Main />}  />
-        <Route path='/mint' element={<JannabiClubMint/>} />
+        <Route exact path='/mint' element={<JannabiClubMint/>} />
         {/* <Route path='/jannabiclubmint' element={<JannabiClubMint/>} /> */}
         {/* <Route path='/wlmint' element={<WhitelistMint/>} /> */}
         {/* <Route path='/jannabiclubwlmint' element={<WhitelistMint/>} /> */}
