@@ -51,6 +51,7 @@ function WJBZMint() {
   
   useEffect(() => {
     const id2 = setInterval(async() => {
+      const { klaytn } = window;
       if(contract===undefined) {
         const _c =  new caver.klay.Contract(JB_ContractABI, `${process.env.REACT_APP_JB_CONTRACT_ADDRESS}`, { gasPrice: '20000000000' });
         contract =_c;
@@ -61,7 +62,8 @@ function WJBZMint() {
       // console.log(contract);
       await contract.call("mintingInformation").then( async (res) => {
         const _nowMintCount = Number(res[1])-1;
-        let _accountCount = (account==='') ? 0 : Number(await KIPContract.balanceOf(account));
+        let _accountCount = (klaytn.selectedAddress==='' ? 0 : Number(await KIPContract.balanceOf(klaytn.selectedAddress)));
+        // console.log(_accountCount);
         if(isNaN(_accountCount)) _accountCount=0;
         const _accountAbleCount = Number(res[4]) - _accountCount;
         setNowMintCount(_nowMintCount);
@@ -122,7 +124,7 @@ function WJBZMint() {
           setIsProgress(true);
           isProgress=true;
 
-          if(blockNumber>=mintStartBlockNumber&&maxMintCount>=Number(nowMintCount)+Number(mintCount)&&balance>=+(mintPrice*mintCount).toFixed(2)&&Number(network)===Number(process.env.REACT_APP_NETWORK)&&!isFail) { //8217 1001
+          if(blockNumber>=mintStartBlockNumber&&maxMintCount>=Number(nowMintCount)+Number(mintCount)&&mintCount<=maxValue&&balance>=+(mintPrice*mintCount).toFixed(2)&&Number(network)===Number(process.env.REACT_APP_NETWORK)&&!isFail) { //8217 1001
               
               const delay = ms => new Promise(res => setTimeout(res, ms));
                     const data = caver.klay.abi.encodeFunctionCall( 
@@ -211,7 +213,8 @@ function WJBZMint() {
     
     await contract.call("mintingInformation").then( async (res) => {
       const _nowMintCount = Number(res[1])-1;
-      let _accountCount = (account==='') ? 0 : Number(await KIPContract.balanceOf(account));
+      let _accountCount = (account==='' ? 0 : Number(await KIPContract.balanceOf(account)));
+      // console.log(_accountCount);
       if(isNaN(_accountCount)) _accountCount=0;
       const _accountAbleCount = Number(res[4]) - _accountCount;
       setNowMintCount(_nowMintCount);
@@ -258,7 +261,8 @@ function WJBZMint() {
     // console.log(_c);
     await _c.call("mintingInformation").then(async (res) => {
       const _nowMintCount = Number(res[1])-1;
-      let _accountCount = (account==='') ? 0 : Number(await KIPContract.balanceOf(account));
+      let _accountCount = (account==='' ? 0 : Number(await KIPContract.balanceOf(account)));
+      // console.log(_accountCount);
       if(isNaN(_accountCount)) _accountCount=0;
       const _accountAbleCount = Number(res[4]) - _accountCount;
       setNowMintCount(_nowMintCount);
