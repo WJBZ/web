@@ -256,16 +256,16 @@ function Main() {
                         <AccordionDetails>
                             선착순 무료 민팅 - 5월 13일(금)<br/>
                             - 3,000개 (무료 민팅 + 가스피 별도)<br/>
-                            * 오후 9시 : 커뮤니티 참여자 대상 민팅<br/>
+                            * 오후 3시 : 커뮤니티 참여자 대상 민팅<br/>
                             <br/>
                             NFT 수집가 선별 소매넣기<br/>
                             - 6900개 (Airdrop)<br/>
                             * 기존 OG & WL 대상 확정 에어드랍<br/>
                             * NFT에 관심이 있는 SNS 이용자들 대상 선별하여 에어드랍 예정<br/>
                             <br/>
-                            기부 민팅 - 5월 27일(금) Charity mint<br/>
+                            기부 민팅 - 추후 공지 Charity mint<br/>
                             - 100개 (10클레이)<br/>
-                            * 오후 9시 : 불우이웃 기부 민팅<br/>
+                            * 시간 별도 공지 : 불우이웃 기부 민팅<br/>
                             * All proceeds will go to charity.<br/>
                         </AccordionDetails>
                     </Accordion>
