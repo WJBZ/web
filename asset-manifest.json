@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.8d2fcd3a.chunk.css",
-    "main.js": "/static/js/main.c2bba5fc.chunk.js",
+    "main.css": "/static/css/main.9297302b.chunk.css",
+    "main.js": "/static/js/main.0cb0d1ae.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.4c3c0f1c.js",
     "static/css/2.3b1921d0.chunk.css": "/static/css/2.3b1921d0.chunk.css",
-    "static/js/2.82846b10.chunk.js": "/static/js/2.82846b10.chunk.js",
+    "static/js/2.c486e019.chunk.js": "/static/js/2.c486e019.chunk.js",
     "static/js/3.0a604082.chunk.js": "/static/js/3.0a604082.chunk.js",
     "index.html": "/index.html",
-    "static/js/2.82846b10.chunk.js.LICENSE.txt": "/static/js/2.82846b10.chunk.js.LICENSE.txt",
+    "static/js/2.c486e019.chunk.js.LICENSE.txt": "/static/js/2.c486e019.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/static/media/NotoSans-Black.a35ac387.woff",
     "static/media/Main.scss": "/static/media/intro_bg.05d08339.png",
     "static/media/logo2.a0f277fa.svg": "/static/media/logo2.a0f277fa.svg",
@@ -16,8 +16,8 @@
   "entrypoints": [
     "static/js/runtime-main.4c3c0f1c.js",
     "static/css/2.3b1921d0.chunk.css",
-    "static/js/2.82846b10.chunk.js",
-    "static/css/main.8d2fcd3a.chunk.css",
-    "static/js/main.c2bba5fc.chunk.js"
+    "static/js/2.c486e019.chunk.js",
+    "static/css/main.9297302b.chunk.css",
+    "static/js/main.0cb0d1ae.chunk.js"
   ]
 }
