@@ -923,7 +923,9 @@ const Header = () => {
                       <span className="first">JANNABI</span>
                     </a>
                   </li>
-                  <li>
+                  <li style={{
+                    display:'none',
+                    }}>
                     <a href="#roadmap">
                       <span className="first">ROADMAP</span>
                     </a>

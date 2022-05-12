@@ -13,7 +13,7 @@ const Footer = () => {
         <a href="https://discord.com/invite/9fYN6zBgr3" target="_Blank"><img src="img/footer/discord_icon.png"/></a>
         <div className="copyright">
           <p>
-            &copy; {new Date().getFullYear()} Jannabi Club<br/>
+            &copy; {new Date().getFullYear()} WJBZ<br/>
             Terms of Service.<br/>
           </p>
           <p>
