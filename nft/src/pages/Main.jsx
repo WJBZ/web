@@ -184,55 +184,9 @@ function Main() {
 
                 <div className="JB_Grid">
                     <div className="JB_GridBox">
-                        <span>더 넓은 세상에<br/>잔나비 알리기📢</span>
-                        <span>WJBZ의 힘세고 강한 커뮤니티를 널리 알리기 위해 유동인구가 많은 지역에서 오프라인 광고를 집행합니다!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>밈 투자 아이디어<br/>콘테스트 오픈💎</span>
-                        <span>첫 번째, WJBZ 콘테스트!<br/>직접하기 무서웠던 나만의 저세상 밈 투자 아이디어를 실현해봅시다!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>밈(Meme) 창작<br/>콘테스트 오픈💩</span>
-                        <span>두 번째, WJBZ 콘테스트!<br/>WJBZ 커뮤니티를 더욱 유쾌하게 만들어 줄 밈 창작 콘테스트!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>P2E 로켓 부품<br/>NFT 에어드랍🚀</span>
-                        <span>P2E 게임에서 사용되는 로켓!<br/>민팅 완료 후 12마리 이상 NABI를 보유한 홀더 대상에게 지급!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>세계관 공유<br/>파트너십 체결🤝</span>
-                        <span>"Apes together strong!"<br/>모든 유인원 NFT 프로젝트 팀에게 파트너십 체결을 제안합니다!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>WJBZ 굿즈<br/>제작 및 판매</span>
-                        <span>유니크하고 센스있는 패션 굿즈를 제작하여<br/>열심히 활동하는 WJBZ 홀더들에게 사전 지급 예정!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>WJBZ V2 PFP<br/>NFT 에어드랍✌</span>
-                        <span>WJBZ v2 (PFP) 아트웍을 잔나비 보유량 1:1 비율로  에어드랍 합니다!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>방치형 P2E<br/>게임 PV 공개📺</span>
-                        <span>WJBZ 세계관이 담긴 P2E 게임 프로모션 영상 최초공개!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                    <span>WJBZ 비밀벙커<br/>페이지 오픈🎮</span>
-                        <span>오직 잔나비 홀더만 접근가능한 Private 커뮤니티 페이지 오픈!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>토크노믹스<br/>사전공개🍌</span>
-                        <span>거버넌스 기반 토크노믹스 공개!<br/>확정된 토크노믹스를 기반으로 WJBZ P2E 생태계 구성 예정!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>방치형 P2E<br/>오픈🎮</span>
-                        <span>잔나비와 우주선 NFT를 활용한 P2E 게임 프로젝트 오픈!</span>
-                    </div>
-                    <div className="JB_GridBox">
-                        <span>상세 로드맵<br/>추가예정🐵</span>
-                        <span>로드맵은 계속해서 추가됩니다!</span>
+                        <span>NO ROADMAP PROJECT</span>
                     </div>
                 </div>
-                <div className="JC_DetailBtn"><a href="https://medium.com/@WJBZ.official/wjbz-project-roadmap-13ba6e674932" target="_Blank">상세 로드맵 &gt;</a></div>
             </div>
 
             {/* TEAM */}
@@ -268,7 +222,7 @@ function Main() {
                             </div>
                             <div className="JB_GridBox">
                                 <div className="JB_CirclePhoto"><img src="img/team/5.png"/></div>
-                                <div className="JB_Name">Nabizz</div>
+                                <div className="JB_Name">Nabiz</div>
                                 <div className="JB_Job">Manager</div>
                             </div>
                         </div>
@@ -300,24 +254,19 @@ function Main() {
                             Q. 민팅 날짜와 가격은 어떻게 되나요?
                         </AccordionSummary>
                         <AccordionDetails>
-                            1차 민팅 - 5월 5일(목) Pre Sale<br/>
-                            - 2,000개 (40클레이)<br/>
-                            * 오후 9시:  화이트리스트 대상 민팅<br/>
-                            * 오후 9시 30분 : 남은 수량 Public Sale<br/>
+                            선착순 무료 민팅 - 5월 13일(금)<br/>
+                            - 3,000개 (무료 민팅 + 가스피 별도)<br/>
+                            * 오후 9시 : 커뮤니티 참여자 대상 민팅<br/>
                             <br/>
-                            2차 민팅 - 5월 6일(금) Public Sale<br/>
-                            - 3,000개 (50클레이)<br/>
-                            * 오후 9시<br/>
-                            * 다음날까지 남는 수량 이월<br/>
+                            NFT 수집가 선별 소매넣기<br/>
+                            - 6900개 (Airdrop)<br/>
+                            * 기존 OG & WL 대상 확정 에어드랍<br/>
+                            * NFT에 관심이 있는 SNS 이용자들 대상 선별하여 에어드랍 예정<br/>
                             <br/>
-                            3차 민팅 - 5월 7일(토) Public Sale<br/>
-                            - 4,000개 (50클레이)<br/>
-                            * 오후 9시<br/>
-                            * 다음날까지 남는 수량 +5클레이 인상.<br/>
-                            <br/>
-                            잔나비클럽 팀 물량<br/>
-                            - 1000개<br/>
-                            *홀더 대상 이벤트, 에어드랍 예정.
+                            기부 민팅 - 5월 27일(금) Charity mint<br/>
+                            - 100개 (10클레이)<br/>
+                            * 오후 9시 : 불우이웃 기부 민팅<br/>
+                            * All proceeds will go to charity.<br/>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -329,7 +278,7 @@ function Main() {
                             Q. 민팅은 어떤 지갑으로 진행할 수 있나요?
                         </AccordionSummary>
                         <AccordionDetails>
-                            A. 잔나비클럽은 클레이튼 체인 기반의 NFT로 카이카스 지갑을 통해서만 민팅이 가능합니다!
+                            A. WJBZ 프로젝트는 클레이튼 체인 기반의 NFT로 카이카스 지갑을 통해서만 민팅이 가능합니다!
                         </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -341,7 +290,7 @@ function Main() {
                             Q. 레어리티는 언제 확인할 수 있나요?
                         </AccordionSummary>
                         <AccordionDetails>
-                            A. 민팅이 모두 완료된 후 홈페이지를 통해 공개될 예정입니다.
+                            A. 레어리티는 별도로 공개하지 않습니다.
                         </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -350,10 +299,10 @@ function Main() {
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                         >
-                            Q. 잔나비를 다수 보유한 홀더에게 어떤 해택이 있나요?
+                            Q. 로드맵은 어디서 확인하나요?
                         </AccordionSummary>
                         <AccordionDetails>
-                            A. 기본적으로 콘테스트 이벤트 등에서 더 많은 영향력을 행사할 수 있습니다.<br/>또 잔나비 00마리 이상 보유한 홀더분들에게는 추후 개발되는 P2E게임을 위한 한정 수량의 우주선 NFT를 에어드랍 해드릴 예정입니다.
+                            A. WJBZ 프로젝트는 Non-Roadmap 프로젝트로 변경되었으며, 부담없이 자유로운 NFT 커뮤니티가 되고자합니다.
                         </AccordionDetails>
                     </Accordion>
                     <Accordion>
@@ -362,58 +311,10 @@ function Main() {
                         aria-controls="panel2a-content"
                         id="panel2a-header"
                         >
-                            Q. P2E 게임은 언제 오픈하나요?
+                            Q. 잔나비를 보유한 홀더는 어떤 이점이 있나요?
                         </AccordionSummary>
                         <AccordionDetails>
-                            A. WJBZ의 세계관을 그려낸 방치형 P2E 게임은 7월중을 목표로 오픈될 예정입니다.
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                            Q. 콘테스트에 대해 알려주세요!
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            A. WJBZ 프로젝트는 P2E 이외에 NFT를 활용한 다양한 즐길거리를 만들어가고자 합니다.<br/>준비중인 콘테스트는 현재 2가지 이며 추후 새로운 콘테스트가 추가될 예정입니다!<br/><br/>더 자세한 콘테스트 내용은 미디엄 블로그를 확인해주세요!
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                            Q. 잔나비 NFT로 채굴이 되나요?
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            A. 방치형 P2E 게임을 통해서 토큰 채굴이 가능합니다.
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                            Q. 잔나비 NFT는 레어리티에 따른 차이가 있나요?
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            A. 잔나비 NFT의 경우 채굴량은 모두 동일할 예정입니다.
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion>
-                        <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                        >
-                            Q. 우주선 NFT는 무엇인가요?
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            A. P2E 게임 스토리상 바나나 재배가 불가능해진 지구와 바나나팜 행성을 오갈 수 있는 중요한 이동 수단입니다.<br/>우주선을 직접 소유하여 바나나를 재배 하거나 타인의 우주선에 수수료를 지급하여 탑승할 수 있습니다.
+                            A. 보유중인 잔나비 NFT 캐릭터에 대한 저작권을 함께 소유하게 됩니다.
                         </AccordionDetails>
                     </Accordion>
                     <div className="Faq_ps"><strong>더 궁금한 내용이 있으신가요?</strong><br/>오픈채팅방 or 디스코드 채널을 통해 문의해 주시면 빠르고 친절하게 답변해드리겠습니다:)</div>
