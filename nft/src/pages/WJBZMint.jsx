@@ -100,9 +100,6 @@ function WJBZMint() {
 
   async function onMintBtn() {
     const { klaytn } = window;
-
-    // console.log(mCount);
-
     if(!showInfo) {
        //loadAccountInfo Process
       if(klaytn) {
